@@ -14,3 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+/**
+ * api
+ */
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1',function ($api){
+    /**
+     * admin-api
+     */
+    $api->group(['namespace'=>'App\Http\Controllers\Admin','prefix'=>'admin'],function ($api){
+        $api->post('/login','AuthController@login');
+    });
+});
+$api->version('v2',function ($api){
+
+});
