@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Service\UserService;
 use App\User;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Http\Request;
@@ -19,24 +20,17 @@ class AuthController extends Controller {
 
     use Helpers;
 
-    public function __construct(){
+    protected $userService;
 
+    public function __construct(UserService $userService){
+        $this->userService = $userService;
     }
 
     public function login(Request $request){
         $credentials = $request->only('email','password');
-        try{
-            if (!$token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 401);
-            }
-        }catch (JWTException $e){
-            return response()->json(['error' => 'could_not_create_token'], 500);
-        }
+        $res = $this->userService->login($credentials);
 
-        $where['email'] = $credentials['email'];
-
-        $name = User::where($where)->value('name');
-        return response()->json(compact('token', 'name'));
+        return $res;
     }
 
     public function logout(){
