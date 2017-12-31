@@ -32,7 +32,9 @@ $api->version('v1',function ($api){
         $api->post('/login','AuthController@login');
     });
     $api->group(['namespace' => 'App\Http\Controllers\Admin','prefix'=>'admin'/*,'middleware' => 'jwt.auth'*/],function ($api){
+        //【菜单】列表
         $api->get('/menu-list','MenuController@getMenuList');
+        //【系统用户】列表
         $api->get('/system/user-list','SystemUserController@listByPage');
         $api->get('/me','AuthController@me');
     });
