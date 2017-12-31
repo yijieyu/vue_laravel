@@ -107,8 +107,8 @@
                 //请求后端:
                 instance.$http.post('/api/admin/login', loginParam).then(response=>{
 
-                    if (response.body.code == 200) {
-                        window.location.href = "http://localhost:8110/admin/login#/admin/index ";
+                    if (response.data.code == 200){
+                        this.$router.push({path:'/admin/index'});
                     }else{
                         this.isShow = true;
                         this.errorMsg = "用户名或密码错误，请重试。";
