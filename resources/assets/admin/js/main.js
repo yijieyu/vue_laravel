@@ -1,21 +1,23 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import App from './components/App.vue'
-import VueResource from 'vue-resource'
 import routes from './routes';
 import VueRouter from 'vue-router'
+import axios from 'axios'
+// import VueResource from 'vue-resource'
 
 // require('./bootstrap');
-window.$ =  require('jquery')
+window.$ =  require('jquery');
 
-Vue.prototype.$ELEMENT = { size: 'small' }
+Vue.prototype.$ELEMENT = { size: 'small' };
+Vue.prototype.$http = axios;
 
 const router = new VueRouter({
     routes
 });
 
 Vue.use(ElementUI);
-Vue.use(VueResource);
+// Vue.use(VueResource);
 Vue.use(VueRouter)
 
 new Vue({
