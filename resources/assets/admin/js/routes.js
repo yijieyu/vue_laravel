@@ -9,8 +9,7 @@ import Base from './components/Base.vue'
  */
 
 const routes = [
-    {path: '/admin/login', component: Login, name: 'Login'},
-
+    {path: '/', component: Login, name: 'Login'},
     {
         path: '/admin',
         component: Base,
@@ -19,6 +18,17 @@ const routes = [
                 path: 'index',
                 name: 'index',
                 meta: {hideLeft: false, module: 'Administrative', name: 'index'}
+            }
+        ]
+    },
+    {
+        path: '/system',
+        component: Base,
+        children: [
+            {
+                path: 'user-list',
+                name: 'userList',
+                meta: {hideLeft: false, module: 'Administrative', name: 'userList'}
             }
         ]
     },
