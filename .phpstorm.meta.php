@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-12-27.
+    * Generated on 2017-12-30.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -40,7 +40,6 @@ namespace PHPSTORM_META {
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'api.router' => \Dingo\Api\Routing\Router::class,
         'Dingo\Api\Routing\ResourceRegistrar' => \Dingo\Api\Routing\ResourceRegistrar::class,
-        'api.url' => \Dingo\Api\Routing\UrlGenerator::class,
         'api.limiting' => \Dingo\Api\Http\RateLimit\Handler::class,
         'api.http.validator' => \Dingo\Api\Http\RequestValidator::class,
         'Dingo\Api\Http\Validation\Domain' => \Dingo\Api\Http\Validation\Domain::class,
@@ -201,7 +200,6 @@ namespace PHPSTORM_META {
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'api.router' => \Dingo\Api\Routing\Router::class,
         'Dingo\Api\Routing\ResourceRegistrar' => \Dingo\Api\Routing\ResourceRegistrar::class,
-        'api.url' => \Dingo\Api\Routing\UrlGenerator::class,
         'api.limiting' => \Dingo\Api\Http\RateLimit\Handler::class,
         'api.http.validator' => \Dingo\Api\Http\RequestValidator::class,
         'Dingo\Api\Http\Validation\Domain' => \Dingo\Api\Http\Validation\Domain::class,
@@ -362,7 +360,6 @@ namespace PHPSTORM_META {
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'api.router' => \Dingo\Api\Routing\Router::class,
         'Dingo\Api\Routing\ResourceRegistrar' => \Dingo\Api\Routing\ResourceRegistrar::class,
-        'api.url' => \Dingo\Api\Routing\UrlGenerator::class,
         'api.limiting' => \Dingo\Api\Http\RateLimit\Handler::class,
         'api.http.validator' => \Dingo\Api\Http\RequestValidator::class,
         'Dingo\Api\Http\Validation\Domain' => \Dingo\Api\Http\Validation\Domain::class,
@@ -523,7 +520,6 @@ namespace PHPSTORM_META {
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'api.router' => \Dingo\Api\Routing\Router::class,
         'Dingo\Api\Routing\ResourceRegistrar' => \Dingo\Api\Routing\ResourceRegistrar::class,
-        'api.url' => \Dingo\Api\Routing\UrlGenerator::class,
         'api.limiting' => \Dingo\Api\Http\RateLimit\Handler::class,
         'api.http.validator' => \Dingo\Api\Http\RequestValidator::class,
         'Dingo\Api\Http\Validation\Domain' => \Dingo\Api\Http\Validation\Domain::class,
@@ -684,7 +680,6 @@ namespace PHPSTORM_META {
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'api.router' => \Dingo\Api\Routing\Router::class,
         'Dingo\Api\Routing\ResourceRegistrar' => \Dingo\Api\Routing\ResourceRegistrar::class,
-        'api.url' => \Dingo\Api\Routing\UrlGenerator::class,
         'api.limiting' => \Dingo\Api\Http\RateLimit\Handler::class,
         'api.http.validator' => \Dingo\Api\Http\RequestValidator::class,
         'Dingo\Api\Http\Validation\Domain' => \Dingo\Api\Http\Validation\Domain::class,
@@ -845,7 +840,6 @@ namespace PHPSTORM_META {
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'api.router' => \Dingo\Api\Routing\Router::class,
         'Dingo\Api\Routing\ResourceRegistrar' => \Dingo\Api\Routing\ResourceRegistrar::class,
-        'api.url' => \Dingo\Api\Routing\UrlGenerator::class,
         'api.limiting' => \Dingo\Api\Http\RateLimit\Handler::class,
         'api.http.validator' => \Dingo\Api\Http\RequestValidator::class,
         'Dingo\Api\Http\Validation\Domain' => \Dingo\Api\Http\Validation\Domain::class,
@@ -1006,7 +1000,6 @@ namespace PHPSTORM_META {
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'api.router' => \Dingo\Api\Routing\Router::class,
         'Dingo\Api\Routing\ResourceRegistrar' => \Dingo\Api\Routing\ResourceRegistrar::class,
-        'api.url' => \Dingo\Api\Routing\UrlGenerator::class,
         'api.limiting' => \Dingo\Api\Http\RateLimit\Handler::class,
         'api.http.validator' => \Dingo\Api\Http\RequestValidator::class,
         'Dingo\Api\Http\Validation\Domain' => \Dingo\Api\Http\Validation\Domain::class,

@@ -13,23 +13,23 @@ use App\Repository\UserRepository;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use JWTAuth;
 
-class UserService {
+class UserService extends BaseService {
 
     protected $userRepository;
+
     public function __construct(UserRepository $userRepository){
         $this->userRepository = $userRepository;
     }
 
     public function login($credentials){
-        try{
-            if(!$token = JWTAuth::attempt($credentials)){
-                return ['error' => 'invalid_credentials','code'=>401];
-            }
-        }catch (JWTException $e){
-            return ['error' => 'could_not_create_token','code'=>500];
-        }
 
-        $name = $this->userRepository->findBy('email',$credentials['email'],['name'])['name'];
-        return compact('token', 'name');
+        $user = $this->userRepository->findBy('name',$credentials['username']);
+        if(!\Hash::check($credentials['password'],$user['password'])){
+            return $this->returnArray(['error' => 'invalid_credentials']);
+        }
+        $token = JWTAuth::fromUser($user);
+        $name  = $user['name'];
+
+        return $this->returnArray(['data'=>compact('name')],$token);
     }
 }

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('admin/index');
 });
 
 /**
@@ -20,12 +20,20 @@ Route::get('/', function () {
  */
 $api = app('Dingo\Api\Routing\Router');
 
+Route::get('/admin/login', function () {
+    return view('admin/index');
+});
+
 $api->version('v1',function ($api){
     /**
      * admin-api
      */
     $api->group(['namespace'=>'App\Http\Controllers\Admin','prefix'=>'admin'],function ($api){
         $api->post('/login','AuthController@login');
+    });
+    $api->group(['namespace' => 'App\Http\Controllers\Admin','prefix'=>'admin','middleware' => 'jwt.auth'],function ($api){
+        $api->get('/menu','MenuController@menu');
+        $api->get('/me','AuthController@me');
     });
 });
 $api->version('v2',function ($api){

@@ -27,10 +27,14 @@ class AuthController extends Controller {
     }
 
     public function login(Request $request){
-        $credentials = $request->only('email','password');
+        $credentials = $request->only('username','password');
         $res = $this->userService->login($credentials);
 
-        return $res;
+        return response()->json($res);
+    }
+
+    public function me(Request $request){
+        return $request->all();
     }
 
     public function logout(){
