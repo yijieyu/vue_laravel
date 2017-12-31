@@ -40,7 +40,7 @@
 			</section>
 		</el-col>
 
-		<changePwd ref="changePwd"></changePwd>
+		<!--<changePwd ref="changePwd"></changePwd>-->
 
 	</el-row>
 </template>
@@ -154,13 +154,17 @@
 
       }
     },
-    created() {
-    },
     computed: {
-
+        showLeftMenu() {
+            return false;
+        },
+        showLoading() {
+            return true;
+//            return store.state.globalLoading
+        }
     },
     components: {
-      leftMenu
+        leftMenu,
     },
     watch: {
 
