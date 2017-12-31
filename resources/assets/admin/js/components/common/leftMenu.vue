@@ -35,7 +35,6 @@
         },
         methods: {
             routerChange(item) 	{
-                console.log(item);
                 // 与当前页面路由相等则刷新页面
                 if (item.url != this.$route.path) {
                     this.$router.push(item.path)
