@@ -22,5 +22,7 @@ class MenuController extends Controller {
 
     public function getMenuList(){
         $list = $this->menuService->menuList();
+
+        return $list;
     }
 }
