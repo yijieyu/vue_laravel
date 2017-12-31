@@ -31,8 +31,8 @@ $api->version('v1',function ($api){
     $api->group(['namespace'=>'App\Http\Controllers\Admin','prefix'=>'admin'],function ($api){
         $api->post('/login','AuthController@login');
     });
-    $api->group(['namespace' => 'App\Http\Controllers\Admin','prefix'=>'admin','middleware' => 'jwt.auth'],function ($api){
-        $api->get('/menu','MenuController@menu');
+    $api->group(['namespace' => 'App\Http\Controllers\Admin','prefix'=>'admin'/*,'middleware' => 'jwt.auth'*/],function ($api){
+        $api->get('/menu-list','MenuController@getMenuList');
         $api->get('/me','AuthController@me');
     });
 });
