@@ -17,10 +17,10 @@ class SystemUser extends Model{
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'mail', 'password',
     ];
 
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
     ];
 }

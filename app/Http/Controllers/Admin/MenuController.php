@@ -6,16 +6,21 @@
  * Time: 11:27
  */
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+
+use App\Http\Controllers\Controller;
+use App\Service\MenuService;
 
 class MenuController extends Controller {
 
-    public function __construct(){
+    protected $menuService;
 
+    public function __construct(MenuService $menuService){
+        $this->menuService = $menuService;
     }
 
     public function getMenuList(){
-
+        $list = $this->menuService->menuList();
     }
 }
