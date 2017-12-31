@@ -33,6 +33,7 @@ $api->version('v1',function ($api){
     });
     $api->group(['namespace' => 'App\Http\Controllers\Admin','prefix'=>'admin'/*,'middleware' => 'jwt.auth'*/],function ($api){
         $api->get('/menu-list','MenuController@getMenuList');
+        $api->get('/system/user-list','SystemUserController@listByPage');
         $api->get('/me','AuthController@me');
     });
 });
