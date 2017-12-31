@@ -25,16 +25,38 @@
 </template>
 
 <script>
-export default {
-  props: ['menuData', 'menu'],
-  data() {
-    return {
+    export default {
+        props: [],
+        data() {
+            return {
+                menuData:[],
+                menu:''
+            }
+        },
+        methods: {
+            routerChange(item) 	{
+                console.log(item);
+                // 与当前页面路由相等则刷新页面
+                if (item.url != this.$route.path) {
+                    this.$router.push(item.path)
+                } else {
+                    this.$router.replace({ path: '/refresh', query: { name: this.$route.name }})
+                }
+            },
+            getLeftMenu(){
+                this.$http.get('/api/admin/menu-list').then(response=>{
+                    if(parseInt(response.data.code) === 200){
+                        this.menuData = response.data.data;
+                    }
+                },response=>{
+                    console.log(response);
+                });
+            }
+        },
+        mounted(){
+            this.$nextTick(function (){
+                this.getLeftMenu();
+            });
+        }
     }
-  },
-  methods: {
-    routerChange(item) 	{
-
-    }
-  }
-}
 </script>
