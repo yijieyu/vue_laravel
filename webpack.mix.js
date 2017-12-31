@@ -16,4 +16,9 @@ let mix = require('laravel-mix');
  * admin
  */
 mix.js('resources/assets/admin/js/main.js', 'public/admin/js')
-   .sass('resources/assets/admin/sass/app.scss', 'public/admin/css');
+    .sass('resources/assets/admin/sass/app.scss', 'public/admin/css')
+    .styles([
+        'resources/assets/admin/assets/css/base.css',
+        'resources/assets/admin/assets/css/global.css',
+        // 'resources/assets/admin/assets/css/font-awesome.min.css'
+    ], 'public/admin/css/base.css');
