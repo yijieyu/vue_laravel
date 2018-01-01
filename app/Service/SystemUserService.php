@@ -26,5 +26,23 @@ class SystemUserService extends BaseService {
         return $this->returnArray(['data'=>$list]);
     }
 
+    public function getOneUserByID($userID){
+        $user = $this->systemUserRepository->findBy('id',$userID);
+
+        return $this->returnArray(['data'=>$user]);
+    }
+
+    public function updateUser($data){
+        $updateData = [
+            'mail' => $data['mail'],
+            'phone' => $data['phone'],
+            'desc' => $data['desc']
+        ];
+        $res = $this->systemUserRepository->update($updateData,['id'=>$data['id']]);
+        if(!$res){
+            return $this->returnArray(['error'=>$res]);
+        }
+        return $this->returnArray(['data'=>$res]);
+    }
 
 }
