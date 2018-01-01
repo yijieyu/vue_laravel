@@ -10,6 +10,7 @@ namespace App\Repository;
 
 
 use App\Model\SystemUser;
+use Illuminate\Database\QueryException;
 
 class SystemUserRepository implements RepositoryInterface {
 
@@ -32,9 +33,9 @@ class SystemUserRepository implements RepositoryInterface {
         return $this->model->create($data);
     }
 
-    public function update(array $data, $id)
+    public function update(array $data, $where)
     {
-        return $this->model->update($data,$id);
+        return $this->model->where($where)->update($data);
     }
 
     public function delete($id)
