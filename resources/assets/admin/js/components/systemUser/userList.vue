@@ -33,6 +33,18 @@
                 </template>
             </el-table-column>
         </el-table>
+        <div class="pos-rel p-t-20">
+            <!--<btnGroup :selectedData="multipleSelection" :type="'users'"></btnGroup>-->
+            <div class="block pages">
+                <el-pagination
+                        @current-change="handleCurrentChange"
+                        layout="prev, pager, next"
+                        :page-size="limit"
+                        :current-page="currentPage"
+                        :total="dataCount">
+                </el-pagination>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -41,37 +53,80 @@
         data(){
             return {
                 tableData:[],
-                keywords:""
+                keywords:"",
+                limit:null,
+                currentPage:null,
+                dataCount:null,
             };
         },
         methods:{
             getData(){
-                this.$http.get('/api/admin/system/user-list').then(response=>{
+                let param = {
+                    page:this.currentPage,
+                    keywords:this.keywords,
+                };
+                this.$http.get('/api/admin/system/user-list',{params:param}).then(response=>{
                     console.log(response);
                     if(parseInt(response.data.code) === 200){
-                        this.tableData = response.data.data.data;
+                        let data = response.data.data;
+                        this.tableData = data.data;
+                        this.limit = data.per_page;
+                        this.currentPage = parseInt(data.current_page);
+                        this.dataCount = data.total;
                     }
                 },response=>{
                     console.log(response);
                 });
             },
             search(){
-
+                this.$router.push({path:this.$router.currentRoute.path,query:{keywords:this.keywords,page:1}});
             },
             confirmDelete(id){
                 console.log(id);
+            },
+            handleCurrentChange(page){
+
+                this.$router.push({path:this.$router.currentRoute.path,query:{keywords:this.keywords,page:page}});
+            },
+            getKeyWords(){
+                let data = this.$router.currentRoute.query;
+                this.keywords = '';
+                if (data) {
+                    if (data.keywords) {
+                        this.keywords = data.keywords;
+                    }
+                }
+            },
+            getCurrentPage(){
+                let data = this.$router.currentRoute.query;
+                this.currentPage = 1;
+                if(data){
+                    if(data.page){
+                        this.currentPage = parseInt(data.page);
+                    }
+                }
+            },
+            init(){
+                this.getKeyWords();
+                this.getCurrentPage();
+                this.getData();
             }
         },
         mounted:function (){
             this.$nextTick(function (){
-                this.getData();
+                this.init();
             });
         },
         computed:{
             addShow(){
                 return true;
             }
-        }
+        },
+        watch: {
+            '$route' (to, from) {
+                this.init()
+            }
+        },
     }
 
 </script>
