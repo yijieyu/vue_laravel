@@ -32,6 +32,15 @@ class SystemUserService extends BaseService {
         return $this->returnArray(['data'=>$user]);
     }
 
+    public function create($data){
+        $res = $this->systemUserRepository->create($data);
+
+        if(!$res){
+            return $this->returnArray(['error'=>'操作失败，请重试']);
+        }
+        return $this->returnArray(['data'=>'操作成功']);
+    }
+
     public function updateUser($data){
         $updateData = [
             'mail' => $data['mail'],
