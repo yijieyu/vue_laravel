@@ -24,7 +24,7 @@
                 <template scope="scope">
                     <div>
                         <span>
-                            <router-link :to="{ name: 'UserEdit', params: { id: scope.row.id }}" class="btn-link edit-btn">编辑</router-link>
+                            <router-link :to="{ name: 'userEdit', params: { id: scope.row.id }}" class="btn-link edit-btn">编辑</router-link>
                         </span>
                         <span>
                             <el-button size="small" type="danger" @click="confirmDelete(scope.row)">删除</el-button>
