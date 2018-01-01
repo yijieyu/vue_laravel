@@ -76,6 +76,9 @@
                 },response=>{
                     this.isLoading = !this.isLoading;
                 });
+            },
+            goback() {
+                this.$router.go(-1)
             }
         }
     }
