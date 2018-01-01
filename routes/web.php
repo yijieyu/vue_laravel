@@ -36,6 +36,10 @@ $api->version('v1',function ($api){
         $api->get('/menu-list','MenuController@getMenuList');
         //【系统用户】列表
         $api->get('/system/user-list','SystemUserController@listByPage');
+        //【系统用户】获取一个用户
+        $api->get('/system/get-user','SystemUserController@getOneUser');
+        //【系统用户】保存
+        $api->post('/system/save-user','SystemUserController@saveUser');
         $api->get('/me','AuthController@me');
     });
 });
