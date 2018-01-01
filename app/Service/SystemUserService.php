@@ -40,9 +40,9 @@ class SystemUserService extends BaseService {
         ];
         $res = $this->systemUserRepository->update($updateData,['id'=>$data['id']]);
         if(!$res){
-            return $this->returnArray(['error'=>$res]);
+            return $this->returnArray(['error'=>'操作失败，请重试']);
         }
-        return $this->returnArray(['data'=>$res]);
+        return $this->returnArray(['data'=>'操作成功']);
     }
 
 }
