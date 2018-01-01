@@ -5,7 +5,7 @@
                 <el-input v-model.trim="form.username" class="h-40 w-200" :maxlength=12 :disabled="true"></el-input>
             </el-form-item>
             <el-form-item label="密码" prop="password">
-                <el-input v-model.trim="form.password" class="h-40 w-200"></el-input>
+                <el-input v-model.trim="password" class="h-40 w-200"></el-input>
             </el-form-item>
             <el-form-item label="邮箱" prop="mail">
                 <el-input v-model.trim="form.mail" class="h-40 w-200"></el-input>
@@ -38,7 +38,6 @@
                 form: {
                     id:'',
                     username: '',
-                    password: '',
                     mail: null,
                     phone: '',
                     desc: ''
@@ -67,6 +66,7 @@
             add(){
                 this.$refs['form'].validate((valid) => {
                     if (valid) {
+                        this.isLoading = !this.isLoading
                         this.saveUser();
                     } else {
                         console.log('error submit!!');
@@ -80,18 +80,21 @@
                         let data = response.data.data;
                         this.form = {
                             username : data.username,
-                            password : data.password,
                             mail : data.mail,
                             phone : data.phone,
                             desc:data.desc,
                             id:data.id
-                        }
+                        };
+                        this.password = data.password;
                     }
                 },response=>{
                     console.log(response);
                 });
             },
             saveUser(){
+                if(this.password){
+                    this.form.password = this.password;
+                }
                 this.$http.post('/api/admin/system/save-user',this.form).then(response=>{
                     if(parseInt(response.data.code) === 200){
                         _g.toastMsg('success', '添加成功');
@@ -100,9 +103,11 @@
                         }, 1500);
                     }else{
                         _g.toastMsg('error', '添加失败');
+                        this.isLoading = !this.isLoading
                     }
                 },response=>{
                     console.log(response);
+                    this.isLoading = !this.isLoading
                 });
             }
         },
