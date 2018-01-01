@@ -33,6 +33,11 @@ class SystemUserController extends Controller {
         return $user;
     }
 
+    public function create(Request $request){
+        $data = $request->only('username','password','mail','desc','phone');
+        $this->systemUserService->create($data);
+    }
+
     public function saveUser(Request $request){
         $data = $request->only('mail','phone','desc','id');
         return $this->systemUserService->updateUser($data);
