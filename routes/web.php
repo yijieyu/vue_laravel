@@ -38,8 +38,10 @@ $api->version('v1',function ($api){
         $api->get('/system/user-list','SystemUserController@listByPage');
         //【系统用户】获取一个用户
         $api->get('/system/get-user','SystemUserController@getOneUser');
-        //【系统用户】保存
+        //【系统用户】修改
         $api->post('/system/save-user','SystemUserController@saveUser');
+        //【系统用户】创建
+        $api->post('/system/add-user','SystemUserController@create');
         $api->get('/me','AuthController@me');
     });
 });
