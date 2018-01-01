@@ -33,6 +33,7 @@ class SystemUserService extends BaseService {
     }
 
     public function create($data){
+        $data['password'] = bcrypt($data['password']);
         $res = $this->systemUserRepository->create($data);
 
         if(!$res){
