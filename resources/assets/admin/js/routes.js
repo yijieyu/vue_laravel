@@ -19,7 +19,7 @@ const routes = [
             {
                 path: 'index',
                 name: 'index',
-                meta: {hideLeft: false, module: 'Administrative', name: 'index'}
+                meta: {hideLeft: false, module: '', name: 'index'}
             }
         ]
     },
@@ -31,13 +31,13 @@ const routes = [
                 path: 'user-list',
                 component:UserList,
                 name: 'userList',
-                meta: {hideLeft: false, module: 'Administrative', name: 'userList'}
+                meta: {hideLeft: false, module: 'systemUser', name: 'userList'}
             },
             {
                 path: 'user-edit/:id',
                 component:UserEdit,
-                name: 'UserEdit',
-                meta: {hideLeft: false, module: 'Administrative', name: 'userList'}
+                name: 'userEdit',
+                meta: {hideLeft: false, module: 'systemUser', name: 'userList'}
             },
         ]
     },
