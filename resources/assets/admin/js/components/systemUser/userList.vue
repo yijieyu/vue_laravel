@@ -3,7 +3,7 @@
         <div class="m-b-20 ovf-hd">
             <div class="fl" v-show="addShow">
             <!--<div class="fl">-->
-                <router-link class="btn-link-large add-btn" to="add">
+                <router-link class="btn-link-large add-btn" to="user-add">
                     <i class="el-icon-plus"></i>&nbsp;&nbsp;添加用户
                 </router-link>
             </div>
