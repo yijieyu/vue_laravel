@@ -93,7 +93,14 @@
             },
             saveUser(){
                 this.$http.post('/api/admin/system/save-user',this.form).then(response=>{
-                    console.log(response);
+                    if(parseInt(response.data.code) === 200){
+                        _g.toastMsg('success', '添加成功');
+                        setTimeout(() => {
+                            this.$router.push({name:'userList'});
+                        }, 1500);
+                    }else{
+                        _g.toastMsg('error', '添加失败');
+                    }
                 },response=>{
                     console.log(response);
                 });
