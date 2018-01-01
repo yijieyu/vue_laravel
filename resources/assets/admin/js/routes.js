@@ -2,6 +2,7 @@ import Login from './components/Login.vue'
 import Base from './components/Base.vue'
 import UserList from './components/systemUser/userList.vue'
 import UserEdit from './components/systemUser/userEdit.vue'
+import UserAdd from './components/systemUser/userAdd.vue'
 
 /**
  * meta参数解析
@@ -28,6 +29,12 @@ const routes = [
         component: Base,
         children: [
             {
+                path: 'user-add',
+                component:UserAdd,
+                name: 'userAdd',
+                meta: {hideLeft: false, module: 'systemUser', name: 'userAdd'}
+            },
+            {
                 path: 'user-list',
                 component:UserList,
                 name: 'userList',
@@ -37,7 +44,7 @@ const routes = [
                 path: 'user-edit/:id',
                 component:UserEdit,
                 name: 'userEdit',
-                meta: {hideLeft: false, module: 'systemUser', name: 'userList'}
+                meta: {hideLeft: false, module: 'systemUser', name: 'userEdit'}
             },
         ]
     },
