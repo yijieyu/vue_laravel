@@ -1,5 +1,7 @@
-import Login from './components/admin/Login.vue'
+import Login from './components/Login.vue'
 import Base from './components/Base.vue'
+import UserList from './components/systemUser/userList.vue'
+import UserEdit from './components/systemUser/userEdit.vue'
 
 /**
  * meta参数解析
@@ -27,9 +29,16 @@ const routes = [
         children: [
             {
                 path: 'user-list',
+                component:UserList,
                 name: 'userList',
                 meta: {hideLeft: false, module: 'Administrative', name: 'userList'}
-            }
+            },
+            {
+                path: 'user-edit/:id',
+                component:UserEdit,
+                name: 'UserEdit',
+                meta: {hideLeft: false, module: 'Administrative', name: 'userList'}
+            },
         ]
     },
 ];
