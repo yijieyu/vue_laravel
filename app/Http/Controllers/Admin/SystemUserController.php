@@ -35,7 +35,7 @@ class SystemUserController extends Controller {
 
     public function create(Request $request){
         $data = $request->only('username','password','mail','desc','phone');
-        $this->systemUserService->create($data);
+        return $this->systemUserService->create($data);
     }
 
     public function saveUser(Request $request){
