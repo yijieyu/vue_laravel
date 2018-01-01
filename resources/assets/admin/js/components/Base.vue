@@ -159,7 +159,7 @@
             return false;
         },
         showLoading() {
-            return true;
+            return false;
 //            return store.state.globalLoading
         }
     },
