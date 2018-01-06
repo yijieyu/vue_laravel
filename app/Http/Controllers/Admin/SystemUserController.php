@@ -21,8 +21,13 @@ class SystemUserController extends Controller {
         $this->systemUserService = $systemUserService;
     }
 
-    public function listByPage(){
-        $list = $this->systemUserService->paginate();
+    public function listByPage(Request $request){
+
+        $param = $request->only('keywords');
+
+        $condition = $this->systemUserService->getSearchCondition($param['keywords']);
+
+        $list = $this->systemUserService->paginate($condition);
         return $list;
     }
 

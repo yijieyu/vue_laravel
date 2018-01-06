@@ -19,9 +19,14 @@ class SystemUserService extends BaseService {
         $this->systemUserRepository = $systemUserRepository;
     }
 
-    public function paginate(){
+    public function getSearchCondition($param){
+        $where['username'] = ['like','%' . $param . '%'];
+        return $where;
+    }
 
-        $list = $this->systemUserRepository->paginate();
+    public function paginate($where = []){
+
+        $list = $this->systemUserRepository->paginate($where);
 
         return $this->returnArray(['data'=>$list]);
     }

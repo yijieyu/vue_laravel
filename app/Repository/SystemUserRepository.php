@@ -10,7 +10,6 @@ namespace App\Repository;
 
 
 use App\Model\SystemUser;
-use Illuminate\Database\QueryException;
 
 class SystemUserRepository implements RepositoryInterface {
 
@@ -25,7 +24,8 @@ class SystemUserRepository implements RepositoryInterface {
     }
 
     public function paginate(Array $where = [], $perPage = 15, $columns = array('*')){
-        return $this->model->where($where)->paginate($perPage,$columns);
+//        return $this->model->where($where)->paginate($perPage,$columns);
+        return $this->model->orWhere(['username','mail'],'like','%admin%')->toSql();
     }
 
     public function create(array $data)
