@@ -21,7 +21,7 @@
             <el-table-column prop="phone" label="电话"></el-table-column>
             <el-table-column prop="status" label="状态"></el-table-column>
             <el-table-column label="操作">
-                <template scope="scope">
+                <template slot-scope="scope">
                     <div>
                         <span>
                             <router-link :to="{ name: 'userEdit', params: { id: scope.row.id }}" class="btn-link edit-btn">编辑</router-link>
