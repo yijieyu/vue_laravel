@@ -24,8 +24,7 @@ class SystemUserRepository implements RepositoryInterface {
     }
 
     public function paginate(Array $where = [], $perPage = 15, $columns = array('*')){
-//        return $this->model->where($where)->paginate($perPage,$columns);
-        return $this->model->orWhere(['username','mail'],'like','%admin%')->toSql();
+        return $this->model->where($where)->paginate($perPage,$columns);
     }
 
     public function create(array $data)
