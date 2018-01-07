@@ -20,7 +20,8 @@ class SystemUserService extends BaseService {
     }
 
     public function getSearchCondition($param){
-        $where['username'] = ['like','%' . $param . '%'];
+        $where[] = ['username','like','%' . $param . '%','or'];
+        $where[] = ['mail','like','%' . $param . '%','or'];
         return $where;
     }
 
