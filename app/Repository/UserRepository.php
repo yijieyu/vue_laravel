@@ -61,6 +61,6 @@ class UserRepository implements RepositoryInterface {
      */
     public function findBy($attribute, $value, $columns = array('*'))
     {
-        return $this->userModel->where($attribute, '=', $value)->first($columns);
+        return $this->userModel->where($attribute, '=', '"' . $value . '"')->first($columns);
     }
 }
